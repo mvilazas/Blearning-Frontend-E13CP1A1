@@ -9,7 +9,7 @@ el valor llegue a cero y cambiar el texto de bomba por
     <title></title>
   </head>
   <body>
-    <h1> !!! La bomba !!! </h1>
+    <h1 id="bomb"> !!! La bomba !!! </h1>
     <h2 id="timer">15</h2>
     <script>
         var timer_tag = document.getElementById('timer');
@@ -18,7 +18,11 @@ el valor llegue a cero y cambiar el texto de bomba por
         setInterval(function(){
           timer = timer - 1
           timer_tag.innerHTML = timer
-        }, 1000);
+          if (timer <= 0) {
+            document.getElementById("bomb").innerHTML = "Whaaam";
+            document.getElementById("timer").innerHTML = "Ahi queaste";
+          }
+        }, 100);
     </script>
   </body>
 </html>
